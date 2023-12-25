@@ -87,7 +87,7 @@ const Navbar = () => {
             autoComplete="off"
             onSubmit={(e) => {
               e.preventDefault();
-              navigate("/results?search_query=" + searchQuery);
+                navigate("/results?search_query=" + searchQuery);
               document.getElementById("searchInput").blur();
             }}
           >
@@ -106,14 +106,15 @@ const Navbar = () => {
               }}
               onKeyDown={
                 (e)=>{
-                  if(e.code === 'ArrowDown' && activeSuggestion < suggestion.length - 1){
+                  if(e.code === "Enter" && suggestion[activeSuggestion]){
+                    // if enter was pressed for suggestion then only setSearchQuery
+                    setSearchQuery(suggestion[activeSuggestion])
+                  }
+                  else if(e.code === 'ArrowDown' && activeSuggestion < suggestion.length - 1){
                     setActiveSuggestion(++activeSuggestion)
                   }
                   else if(e.code === 'ArrowUp' && activeSuggestion > 0){
                     setActiveSuggestion(--activeSuggestion)
-                  }
-                  else if(e.code === "Enter"){
-                    setSearchQuery(suggestion[activeSuggestion])
                   }
                 }
               }

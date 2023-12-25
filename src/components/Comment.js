@@ -1,18 +1,17 @@
 import React from "react";
 
 const Comment = ({ info }) => {
-//   console.log(info);
   const { snippet } = info;
   const { topLevelComment } = snippet;
 
   return (
-    <div className="w-[60%] m-2 p-2 flex flex-row items-center bg-gray-100">
+    <div className="w-full my-2 p-3 flex flex-row bg-gray-100 rounded-xl">
       <img
-        className="w-8 h-8 rounded-full"
+        className="w-10 h-10 rounded-full mt-1"
         src={topLevelComment?.snippet?.authorProfileImageUrl}
         alt="user"
       />
-      <div className="flex flex-col items-start ml-2">
+      <div className="flex flex-col items-start ml-3">
         <div className="font-semibold">
           {topLevelComment?.snippet?.authorDisplayName}
         </div>

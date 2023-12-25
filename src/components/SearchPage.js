@@ -61,7 +61,7 @@ const SearchPage = () => {
         searchData?.length === 0 && <ShimmerSearchPage />
       }
       <InfiniteScroll
-            dataLength={searchData.length}
+            dataLength={searchData?.length}
             next={getMoreSearchData}
             hasMore={true}
             loader={
@@ -85,7 +85,7 @@ const SearchPage = () => {
             to={"/watch?v=" + element?.id?.videoId}
             key={element?.id?.videoId + randomString(20)}
             >
-              <SearchVideoCard info={element} />
+              <SearchVideoCard info={element} showDescription={true} />
             </Link>
           );
         })}
