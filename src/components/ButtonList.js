@@ -45,12 +45,11 @@ const ButtonList = ({activeElement, setActiveElement}) => {
     <>
       <div className="flex justify-center w-[95%] box-border">
         <button
-          className="mr-1 rounded-full hover:bg-[#0000001a] w-8"
+          className="text-center text-xl font-bold mr-1 rounded-full hover:bg-[#0000001a] w-8"
           onClick={prevHandler}
         >
           &lt;
         </button>
-
         <div
           id="slider"
           className="scroll-smooth w-[90%] flex flex-row overflow-hidden"
@@ -69,11 +68,9 @@ const ButtonList = ({activeElement, setActiveElement}) => {
         </div>
 
         <button
-          className="ml-1 rounded-full hover:bg-[#0000001a] w-8"
+          className="text-center text-xl font-bold ml-1 rounded-full hover:bg-[#0000001a] w-8"
           onClick={nextHandler}
-        >
-          &gt;
-        </button>
+        >&gt;</button>
       </div>
     </>
   );

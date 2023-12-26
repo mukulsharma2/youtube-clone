@@ -1,6 +1,7 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { MdHome } from 'react-icons/md';
 
 const Sidebar = () => {
   const isMenuOpen = useSelector(store => store.app.isMenuOpen);
@@ -15,7 +16,7 @@ const Sidebar = () => {
       <ul>
         <li className='font-bold'>
           <Link to="/">
-            Home
+          <MdHome />Home
             </Link>
         </li>
         <li>Trending</li>

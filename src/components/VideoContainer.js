@@ -59,9 +59,6 @@ const VideoContainer = () => {
   };
 
   return (
-    <>
-      {console.log(videos)}
-
       <div className="flex flex-col flex-wrap items-center border border-black w-[85%]">
         <MyContext.Provider value={setVideos}>
           <ButtonList
@@ -109,7 +106,6 @@ const VideoContainer = () => {
           </InfiniteScroll>
         </div>
       </div>
-    </>
   );
 };
 

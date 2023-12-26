@@ -16,6 +16,7 @@ import { randomString } from "../utils/helper";
             process.env.REACT_APP_API_KEY
         );
         const json = await data.json();
+        if(json.error){return;}
         setVideos(json.items);
       } catch (error) {
         console.log(error);
@@ -25,10 +26,10 @@ import { randomString } from "../utils/helper";
 
   return (
     <>
-    <h3 className="m-2 font-semibold text-2xl">Related Videos:</h3>
+    <h3 className="m-2 mt-8 pl-2 font-semibold text-2xl">Related Videos:</h3>
       {
-      videos.length>3 &&
-      videos.map(video=>{
+      videos?.length > 0 &&
+      videos?.map(video=>{
         return <SearchVideoCard key={randomString(11)} info={video} showDescription={false} />
       })
       }

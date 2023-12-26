@@ -36,7 +36,7 @@ const WatchPageData = ({data}) => {
             </button>
           </div>
           <div className="flex">
-            <span className="mr-3">
+            <span className="mr-5">
               <MdThumbUp size={26} />{" "}
               {formatViews(data?.statistics?.likeCount)}
             </span>
@@ -49,7 +49,7 @@ const WatchPageData = ({data}) => {
       <div className="bg-[#0000000d] rounded-xl p-3">
         <div className="py-1 flex justify-between items-center">
           <span className="font-semibold text-slate-600">
-            {formatViews(data?.statistics?.viewCount)} Views •{" "}
+            {formatViews(data?.statistics?.viewCount)} Views {" • "}
             {moment(data?.snippet?.publishedAt).fromNow()}
           </span>
         </div>

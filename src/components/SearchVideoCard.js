@@ -4,9 +4,9 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 const SearchVideoCard = ({ info, showDescription }) => {
   return (
     <div className="border-b border-black flex flex-row m-2 p-2">
-      <div className="relative mr-3">
+      <div className="relative mr-3 items-center h-fit">
         {/* <img src={info?.snippet?.thumbnails?.medium?.url} alt="thumbnail" className='h-52 rounded-xl' /> */}
-        <div className="rounded-xl overflow-hidden h-fit">
+        <div className="rounded-xl overflow-hidden">
           <LazyLoadImage
             src={info?.snippet?.thumbnails?.medium?.url}
             effect="opacity"
@@ -18,13 +18,14 @@ const SearchVideoCard = ({ info, showDescription }) => {
       </div>
 
       <div>
-        <div className="font-semibold mb-2">{info?.snippet?.title}</div>
+        <div className="font-semibold mb-2">{showDescription? (info?.snippet?.title) : (info?.snippet?.title?.substring(0, 50))}</div>
         <div className="flex items-center">
-          <img
-            className="w-8 h-8 rounded-full mr-1"
+          <LazyLoadImage
             src={info?.snippet?.thumbnails?.medium?.url}
+            effect="opacity"
+            style={{width:'2rem', height:'2rem', marginRight:'0.5rem', borderRadius:'9999px'}}
           />
-          {info?.snippet?.channelTitle}
+          {showDescription? (info?.snippet?.channelTitle) : (info?.snippet?.channelTitle?.substring(0, 20))}
         </div>
         {showDescription && <div className="w-11/12">
           {info?.snippet?.description}

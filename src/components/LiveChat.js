@@ -48,7 +48,7 @@ const getData = async()=>{
 
   return (
     <>
-      <div className="border border-gray-500 rounded-lg h-96 w-[500px] bg-gray-100 overflow-y-scroll flex flex-col-reverse mr-1">
+      <div className="border border-gray-500 rounded-lg h-96 w-[95%] bg-gray-100 overflow-y-scroll flex flex-col-reverse mr-1">
         {chatMessages.map((e) => {
           return (
             <LiveChatMessage key={randomString(20)} name={e.name} message={e.message} />
@@ -63,14 +63,14 @@ const getData = async()=>{
         }))
         setLiveMessage("")
       }} 
-      className="w-full p-2 ml-2 border border-black">
+      className="border border-t-0 border-gray-500 w-[95%] flex items-center p-2 rounded-lg">
         <input
           type="text"
-          className="w-52 px-2"
+          className="w-3/4 border px-2"
           value={liveMessage}
           onChange={(e) => setLiveMessage(e.target.value)}
         />
-        <button className="bg-green-100 px-2 mx-2">Send</button>
+        <button className="bg-green-100 px-3 py-1 mx-2 rounded-xl font-semibold">Send</button>
       </form>
     </>
   );

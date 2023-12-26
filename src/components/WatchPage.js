@@ -86,7 +86,7 @@ const [video, setVideo] = useState();
       </div>
 
       <div className="w-[38vw]">
-        {/* <LiveChat /> */}
+        <LiveChat />
         {video?.snippet?.title && <RelatedVideos query={video?.snippet?.title} />}
       </div>
     </div>

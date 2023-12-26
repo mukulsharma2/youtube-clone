@@ -1,11 +1,13 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import Body from "./components/Body.js";
 import VideoContainer from "./components/VideoContainer.js";
-import WatchPage from "./components/WatchPage.js";
 import { Provider } from "react-redux";
 import store from "./utils/store.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import SearchPage from "./components/SearchPage.js";
+import ShimmerSearchPage from "./components/ShimmerSearchPage.js";
+
+const WatchPage = lazy(()=> import("./components/WatchPage.js"))
+const SearchPage = lazy(()=> import("./components/SearchPage.js"))
 
 const router = createBrowserRouter([
   {
@@ -18,11 +20,11 @@ const router = createBrowserRouter([
       },
       {
         path: "watch",
-        element: <WatchPage />,
+        element: <Suspense><WatchPage /></Suspense>,
       },
       {
         path: "results",
-        element: <SearchPage />,
+        element: <Suspense fallback={<ShimmerSearchPage />}><SearchPage /></Suspense>,
       },
     ],
   },
