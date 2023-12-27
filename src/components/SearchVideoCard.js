@@ -4,15 +4,15 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 const SearchVideoCard = ({ info, showDescription }) => {
   return (
     <div className="border-b border-black flex flex-row m-2 p-2">
-      <div className="relative mr-3 items-center h-fit">
+      <div className="relative mr-3 items-center h-fit w-fit">
         {/* <img src={info?.snippet?.thumbnails?.medium?.url} alt="thumbnail" className='h-52 rounded-xl' /> */}
-        <div className="rounded-xl overflow-hidden">
+        <div className="w-fit rounded-xl overflow-hidden">
           <LazyLoadImage
             src={info?.snippet?.thumbnails?.medium?.url}
             effect="opacity"
           />
         </div>
-        <span className="rounded-sm text-sm absolute right-1 bottom-2 bg-black text-white">
+        <span className="w- rounded-sm text-sm absolute right-1 bottom-2 bg-black text-white">
           10:00
         </span>
       </div>

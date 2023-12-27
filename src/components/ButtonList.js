@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button.js";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const ButtonList = ({activeElement, setActiveElement}) => {
   const arr = [
@@ -45,10 +46,10 @@ const ButtonList = ({activeElement, setActiveElement}) => {
     <>
       <div className="flex justify-center w-full box-border">
         <button
-          className="text-center text-xl font-bold mr-1 rounded-full hover:bg-[#0000001a] w-8"
+          className="mr-1 rounded-full hover:bg-[#0000001a] w-8"
           onClick={prevHandler}
         >
-          &lt;
+          <FaChevronLeft style={{margin: 'auto'}} />
         </button>
         <div
           id="slider"
@@ -68,9 +69,11 @@ const ButtonList = ({activeElement, setActiveElement}) => {
         </div>
 
         <button
-          className="text-center text-xl font-bold ml-1 rounded-full hover:bg-[#0000001a] w-8"
+          className="ml-1 rounded-full hover:bg-[#0000001a] w-8"
           onClick={nextHandler}
-        >&gt;</button>
+        >
+          <FaChevronRight style={{margin: 'auto'}} />
+        </button>
       </div>
     </>
   );

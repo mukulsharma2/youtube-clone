@@ -6,15 +6,20 @@ import ShimmerSearchPage from "./ShimmerSearchPage.js";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { ColorRing } from "react-loader-spinner";
 import { randomString } from "../utils/helper.js";
+import { useSelector } from 'react-redux';
 
 const SearchPage = () => {
-  
+  const isMenuOpen = useSelector(store => store.app.isMenuOpen);
   const [searchParams] = useSearchParams();
   const [searchData, setSearchData] = useState([]);
   const [nextPage, setNextPage] = useState("");
 
   useEffect(() => {
     getSearchData();
+
+    return ()=>{
+    setSearchData([]);
+    }
     // eslint-disable-next-line
   }, [searchParams.get("search_query")]);
 
@@ -56,7 +61,7 @@ const SearchPage = () => {
   };
 
   return (
-    <div className="m-3 p-3">
+    <div className={"absolute top-16 right-0 m-3 p-3" + (isMenuOpen? ' w-[84vw]' : ' w-[93vw]')}>
       {
         searchData?.length === 0 && <ShimmerSearchPage />
       }
