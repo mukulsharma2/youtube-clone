@@ -49,7 +49,7 @@ const getData = async()=>{
   return (
     <>
       <div className="mx-1 border border-gray-500 rounded-lg h-96 w-[34vw] bg-gray-100 overflow-y-scroll flex flex-col-reverse mr-1">
-        {chatMessages.map((e) => {
+        {chatMessages?.map((e) => {
           return (
             <LiveChatMessage key={randomString(20)} name={e.name} message={e.message} />
           );

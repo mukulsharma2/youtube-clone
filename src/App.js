@@ -5,9 +5,10 @@ import { Provider } from "react-redux";
 import store from "./utils/store.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ShimmerSearchPage from "./components/ShimmerSearchPage.js";
+import Login from "./components/Login.js";
 
-const WatchPage = lazy(()=> import("./components/WatchPage.js"))
-const SearchPage = lazy(()=> import("./components/SearchPage.js"))
+const WatchPage = lazy(() => import("./components/WatchPage.js"));
+const SearchPage = lazy(() => import("./components/SearchPage.js"));
 
 const router = createBrowserRouter([
   {
@@ -20,24 +21,34 @@ const router = createBrowserRouter([
       },
       {
         path: "watch",
-        element: <Suspense><WatchPage /></Suspense>,
+        element: (
+          <Suspense>
+            <WatchPage />
+          </Suspense>
+        ),
       },
       {
         path: "results",
-        element: <Suspense fallback={<ShimmerSearchPage />}><SearchPage /></Suspense>,
+        element: (
+          <Suspense fallback={<ShimmerSearchPage />}>
+            <SearchPage />
+          </Suspense>
+        ),
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 
 function App() {
   return (
     <Provider store={store}>
-      <>
-          <div className="flex flex-row">
-            <RouterProvider router={router} />
-          </div>
-      </>
+      <div className="flex flex-row">
+        <RouterProvider router={router} />
+      </div>
     </Provider>
   );
 }

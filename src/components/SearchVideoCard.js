@@ -5,7 +5,6 @@ const SearchVideoCard = ({ info, showDescription }) => {
   return (
     <div className="border-b border-black flex flex-row m-2 p-2">
       <div className="relative mr-3 items-center h-fit w-fit">
-        {/* <img src={info?.snippet?.thumbnails?.medium?.url} alt="thumbnail" className='h-52 rounded-xl' /> */}
         <div className="w-fit rounded-xl overflow-hidden">
           <LazyLoadImage
             src={info?.snippet?.thumbnails?.medium?.url}

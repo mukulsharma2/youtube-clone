@@ -12,6 +12,7 @@ import { cacheResults } from "../utils/searchSlice";
 const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
   };
@@ -110,7 +111,7 @@ const Navbar = () => {
                     // if enter was pressed for suggestion then only setSearchQuery
                     setSearchQuery(suggestion[activeSuggestion])
                   }
-                  else if(e.code === 'ArrowDown' && activeSuggestion < suggestion.length - 1){
+                  else if(e.code === 'ArrowDown' && activeSuggestion < suggestion?.length - 1){
                     setActiveSuggestion(++activeSuggestion)
                   }
                   else if(e.code === 'ArrowUp' && activeSuggestion > 0){
@@ -127,10 +128,10 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {suggestion.length !== 0 && showSuggestion && (
+        {suggestion?.length !== 0 && showSuggestion && (
           <div className="absolute top-14 left-[31vw] px-5 py-2 w-[36rem] rounded-lg shadow-lg bg-white">
             <ul>
-              {suggestion.map((value, i) => {
+              {suggestion?.map((value, i) => {
                 return (
                   <Link key={value} to={"/results?search_query=" + value}>
                     <li
