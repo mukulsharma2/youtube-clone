@@ -68,7 +68,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="bg-white mb-3 h-14 px-4 flex flex-row justify-between items-center shadow-sm z-10 w-[98vw]">
+      <div className="bg-white mb-3 h-14 px-4 flex flex-row justify-between items-center shadow-sm z-10 w-full fixed top-0 left-0">
         <div className="flex flex-row items-center">
           <div
             onClick={toggleMenuHandler}

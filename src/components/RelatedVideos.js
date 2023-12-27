@@ -22,6 +22,7 @@ import { randomString } from "../utils/helper";
         console.log(error);
       }
     })();
+    // eslint-disable-next-line
   }, []);
 
   return (

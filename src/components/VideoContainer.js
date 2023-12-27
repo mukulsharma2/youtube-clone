@@ -8,11 +8,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { ColorRing } from "react-loader-spinner";
 import Shimmer from "./Shimmer.js";
 import { randomString } from "../utils/helper.js";
+import { useSelector } from 'react-redux';
 
 const VideoContainer = () => {
   const [videos, setVideos] = useState([]);
   const [nextPage, setNextPage] = useState("");
   const [activeElement, setActiveElement] = useState("All");
+  const isMenuOpen = useSelector(store => store.app.isMenuOpen);
 
   useEffect(() => {
     getData();
@@ -59,7 +61,8 @@ const VideoContainer = () => {
   };
 
   return (
-      <div className="flex flex-col flex-wrap items-center border border-black w-[85%]">
+      <div className={"flex flex-col flex-wrap items-center absolute top-16 right-0"
+      + (isMenuOpen? ' w-[84vw]' : ' w-[93vw]')}>
         <MyContext.Provider value={setVideos}>
           <ButtonList
             activeElement={activeElement}
@@ -97,6 +100,7 @@ const VideoContainer = () => {
                         "/watch?v=" +
                         (video.id.videoId ? video.id.videoId : video.id)
                       }
+                      style={{width: '33%'}}
                     >
                       <VideoCard info={video} />
                     </Link>

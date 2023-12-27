@@ -34,7 +34,7 @@ function App() {
   return (
     <Provider store={store}>
       <>
-          <div className="flex flex-row overflow-hidden">
+          <div className="flex flex-row">
             <RouterProvider router={router} />
           </div>
       </>

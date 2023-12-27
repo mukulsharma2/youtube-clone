@@ -43,7 +43,7 @@ const ButtonList = ({activeElement, setActiveElement}) => {
 
   return (
     <>
-      <div className="flex justify-center w-[95%] box-border">
+      <div className="flex justify-center w-full box-border">
         <button
           className="text-center text-xl font-bold mr-1 rounded-full hover:bg-[#0000001a] w-8"
           onClick={prevHandler}
