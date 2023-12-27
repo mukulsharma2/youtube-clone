@@ -72,7 +72,7 @@ const VideoContainer = () => {
 
         <div className="flex flex-row flex-wrap justify-center">
           <InfiniteScroll
-            dataLength={videos.length}
+            dataLength={videos?.length}
             next={getMoreVideos}
             hasMore={true}
             loader={
@@ -90,7 +90,7 @@ const VideoContainer = () => {
             }
           >
             <div className="flex flex-row flex-wrap justify-center">
-              {videos.length === 0 && <Shimmer />}
+              {videos?.length === 0 && <Shimmer />}
               {videos &&
                 videos?.map((video) => {
                   return (
