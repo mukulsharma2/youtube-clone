@@ -21,9 +21,7 @@ const VideoContainer = () => {
   }, []);
 
   const getData = async () => {
-    // try{const data = await fetch(YOUTUBE_API + process.env.REACT_APP_API_KEY);
-    try{const data = await fetch(YOUTUBE_API + process.env.SECRET_KEY);
-      console.log(process.env.SECRET_KEY);
+    try{const data = await fetch(YOUTUBE_API + process.env.REACT_APP_API_KEY);
     const json = await data.json();
     setNextPage(json.nextPageToken);
     setVideos(json.items);}
