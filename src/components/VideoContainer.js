@@ -21,7 +21,9 @@ const VideoContainer = () => {
   }, []);
 
   const getData = async () => {
-    try{const data = await fetch(YOUTUBE_API + process.env.REACT_APP_API_KEY);
+    // try{const data = await fetch(YOUTUBE_API + process.env.REACT_APP_API_KEY);
+    try{const data = await fetch(YOUTUBE_API + process.env.SECRET_KEY);
+      console.log(process.env.SECRET_KEY);
     const json = await data.json();
     setNextPage(json.nextPageToken);
     setVideos(json.items);}
@@ -35,7 +37,9 @@ const VideoContainer = () => {
       // if selected category is 'All'
       if (activeElement === "All") {
         const data = await fetch(
-          YOUTUBE_API + process.env.REACT_APP_API_KEY + "&pageToken=" + nextPage
+          YOUTUBE_API + 
+          process.env.REACT_APP_API_KEY
+           + "&pageToken=" + nextPage
         );
         const json = await data.json();
         setNextPage(json.nextPageToken);
