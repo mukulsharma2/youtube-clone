@@ -25,4 +25,4 @@ jobs:
       - uses: SpicyPizza/create-envfile@v2.0
         with:
           envkey_SECRET_KEY: '${{ secrets.REACT_APP_API_KEY }}'
-          directory: '../'
+          directory: './'
