@@ -35,8 +35,13 @@ const WatchPage = () => {
         console.log(error);
       }
     })();
+
+    return ()=>{
+      setVideo()
+      setComments()
+    }
     // eslint-disable-next-line
-  }, []);
+  }, [searchParams.get("v")]);
 
   const getCommentsData = async () => {
     try {

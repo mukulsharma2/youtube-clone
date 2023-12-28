@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { YOUTUBE_RELATED_VIDEOS_API } from "../utils/constants";
 import SearchVideoCard from "./SearchVideoCard";
 import { randomString } from "../utils/helper";
+import { Link } from "react-router-dom";
 
   const RelatedVideos = ({query}) => {
   const [videos, setVideos] = useState({});
@@ -31,7 +32,12 @@ import { randomString } from "../utils/helper";
       {
       videos?.length > 0 &&
       videos?.map(video=>{
-        return <SearchVideoCard key={randomString(11)} info={video} showDescription={false} />
+        return <Link
+            to={"/home/watch?v=" + video?.id?.videoId}
+            key={video?.id?.videoId + randomString(11)}
+            >
+              <SearchVideoCard info={video} showDescription={false} />
+            </Link>
       })
       }
     </>

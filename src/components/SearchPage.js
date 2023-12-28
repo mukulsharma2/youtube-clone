@@ -87,7 +87,7 @@ const SearchPage = () => {
         searchData.map((element) => {
           return (
             <Link
-            to={"/watch?v=" + element?.id?.videoId}
+            to={"/home/watch?v=" + element?.id?.videoId}
             key={element?.id?.videoId + randomString(20)}
             >
               <SearchVideoCard info={element} showDescription={true} />

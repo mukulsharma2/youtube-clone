@@ -99,7 +99,7 @@ const VideoContainer = () => {
                     <Link
                       key={randomString(20)}
                       to={
-                        "/watch?v=" +
+                        "/home/watch?v=" +
                         (video.id.videoId ? video.id.videoId : video.id)
                       }
                       style={{width: '33%'}}

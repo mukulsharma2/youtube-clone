@@ -33,7 +33,7 @@ const arr = [
         }
       >
         <ul>
-          <Link to="/" onClick={() => setSelectedItem("Home")}>
+          <Link to="/home" onClick={() => setSelectedItem("Home")}>
             <li
               className={
                 "box-border h-12 rounded-2xl flex items-center m-2 p-2 font-bold transition-all duration-500 hover:bg-[#0000001a] hover:border hover:border-black hover:text-black" +
@@ -51,7 +51,7 @@ const arr = [
               <Link
                 key={element[0]}
                 onClick={() => setSelectedItem(element[0])}
-                to={"/results?search_query=" + element[0]}
+                to={"/home/results?search_query=" + element[0]}
               >
                 <li
                   className={

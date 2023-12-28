@@ -13,10 +13,14 @@ const SearchPage = lazy(() => import("./components/SearchPage.js"));
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/home",
     element: <Body />,
     children: [
       {
-        path: "/",
+        path: "/home",
         element: <VideoContainer />,
       },
       {
@@ -37,11 +41,8 @@ const router = createBrowserRouter([
       },
     ],
   },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-]);
+])
+
 
 function App() {
   return (

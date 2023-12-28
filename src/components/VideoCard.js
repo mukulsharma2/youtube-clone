@@ -24,7 +24,7 @@ const VideoCard = ({ info }) => {
           {convertDuration(contentDetails?.duration)}
         </span>
       </div>
-      <ul>
+      <ul className="ml-4 w-full">
         <li className="font-bold text-xl my-1">{title.substring(0, 50)}</li>
         <li className="text-lg flex items-center font-medium text-gray-800">
           <LazyLoadImage

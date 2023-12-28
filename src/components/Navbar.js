@@ -20,7 +20,7 @@ const Navbar = () => {
 
   const logoutHandler = () => {
     dispatch(signout())
-    navigate("/login")
+    navigate("/")
   }
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -85,7 +85,7 @@ const userInfo = useSelector((store)=> store.login);
             <img src={hamburgerIcon} alt="hamburger" className="w-5" />
           </div>
 
-          <Link to="/">
+          <Link to="/home">
             <img src={youtubeIcon} alt="youtube" className="w-24 h-6 ml-3" />
           </Link>
         </div>
@@ -95,7 +95,7 @@ const userInfo = useSelector((store)=> store.login);
             autoComplete="off"
             onSubmit={(e) => {
               e.preventDefault();
-                navigate("/results?search_query=" + searchQuery);
+                navigate("/home/results?search_query=" + searchQuery);
               document.getElementById("searchInput").blur();
             }}
           >
@@ -128,7 +128,7 @@ const userInfo = useSelector((store)=> store.login);
               }
             />
           </form>
-          <Link to={"/results?search_query=" + searchQuery}>
+          <Link to={"/home/results?search_query=" + searchQuery}>
             <button className="border border-neutral-300 p-3 rounded-r-3xl w-16 h-10 pl-5 bg-[#0000000d] flex items-center hover:bg-[#0000001a]">
               <img src={searchIcon} alt="search" className="h-5" />
             </button>
@@ -140,7 +140,7 @@ const userInfo = useSelector((store)=> store.login);
             <ul>
               {suggestion?.map((value, i) => {
                 return (
-                  <Link key={value} to={"/results?search_query=" + value}>
+                  <Link key={value} to={"/home/results?search_query=" + value}>
                     <li
                       className={
                         "hover:bg-[#0000001a]"

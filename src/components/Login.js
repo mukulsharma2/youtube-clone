@@ -26,7 +26,7 @@ const userName = useSelector((store)=> store.login.name)
 
 useEffect(()=>{
 if(userName){
-  navigate("/");
+  navigate("/home");
 }
 // eslint-disable-next-line
 },[userName])
