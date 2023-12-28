@@ -60,7 +60,7 @@ const WatchPage = () => {
   };
 
   return (
-    <div className="flex flex-row w-[95vw] absolute top-16 right-0 justify-between">
+    <div className="flex flex-row w-[94vw] absolute top-16 right-0 justify-between">
       <div className="flex flex-col w-[61%] ml-3 mr-4">
         <iframe
           className="rounded-2xl"

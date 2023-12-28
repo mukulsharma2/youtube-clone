@@ -8,6 +8,7 @@ import { toggleMenu } from "../utils/appSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { YOUTUBE_SUGGESTIONS_API } from "../utils/constants";
 import { cacheResults } from "../utils/searchSlice";
+import { signout } from "../utils/loginSlice";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -17,12 +18,18 @@ const Navbar = () => {
     dispatch(toggleMenu());
   };
 
+  const logoutHandler = () => {
+    dispatch(signout())
+    navigate("/login")
+  }
+
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestion, setSuggestion] = useState([]);
   let [activeSuggestion, setActiveSuggestion] = useState(-1);
   const [showSuggestion, setShowSuggestion] = useState(false);
 
   const searchCache = useSelector((store) => store.search);
+const userInfo = useSelector((store)=> store.login);
 
   useEffect(() => {
     setActiveSuggestion(-1)
@@ -150,8 +157,16 @@ const Navbar = () => {
           </div>
         )}
 
-        <div className="w-8">
-          <img src={userIcon} alt="user" />
+        <div className="flex items-center justify-center">
+          <button onClick={logoutHandler} className="font-medium border mx-2 px-2 rounded-2xl bg-black text-white hover:bg-gray-400 hover:text-black hover:border-black">Logout</button>
+          <div 
+          onMouseEnter={()=> document.getElementById("name").classList.remove("hidden")} 
+          onMouseLeave={()=> document.getElementById("name").classList.add("hidden")} 
+          className="flex">
+            <img className="w-8 mr-1 rounded-full" src={userInfo.url || userIcon} alt="user" />
+          <span id="name"
+          className="hidden border border-black rounded-2xl py-1 px-2 bg-white z-10 absolute right-0 top-11">{userInfo.name}</span>
+          </div>
         </div>
       </div>
     </>
