@@ -15,6 +15,8 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           envkey_REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
+          directory: './'
+          file_name: '.env'
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CLONE_9D47F }}'
           channelId: live
