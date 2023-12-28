@@ -19,8 +19,10 @@ jobs:
           channelId: live
           projectId: clone-9d47f
 
+  create_env_file:
+    runs-on: ubuntu-latest
+    steps:
       - uses: SpicyPizza/create-envfile@v2.0
         with:
           envkey_SECRET_KEY: '${{ secrets.REACT_APP_API_KEY }}'
           directory: '../'
-          file_name: '.env'

@@ -16,8 +16,10 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CLONE_9D47F }}'
           projectId: clone-9d47f
 
+  create_env_file:
+    runs-on: ubuntu-latest
+    steps:
       - uses: SpicyPizza/create-envfile@v2.0
         with:
-            envkey_SECRET_KEY: '${{ secrets.REACT_APP_API_KEY }}'
-            directory: '../'
-            file_name: '.env'
+          envkey_SECRET_KEY: '${{ secrets.REACT_APP_API_KEY }}'
+          directory: '../'
