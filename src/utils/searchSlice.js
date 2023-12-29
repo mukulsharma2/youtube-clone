@@ -5,6 +5,7 @@ const searchSlice = createSlice({
   initialState: {},
   reducers: {
     cacheResults: (state, action) => {
+      // New suggestions added to previous suggestions
       state = Object.assign(state, action.payload);
     },
   },

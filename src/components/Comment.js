@@ -5,9 +5,9 @@ const Comment = ({ info }) => {
   const { topLevelComment } = snippet;
 
   return (
-    <div className="w-full my-2 p-3 flex flex-row bg-gray-100 rounded-xl">
+    <div className="w-full overflow-hidden my-2 p-3 flex flex-row bg-gray-100 rounded-xl">
       <img
-        className="w-10 h-10 rounded-full mt-1"
+        className="w-8 sm:w-10 h-8 sm:h-10 rounded-full mt-1"
         src={topLevelComment?.snippet?.authorProfileImageUrl}
         alt="user"
       />
@@ -16,7 +16,9 @@ const Comment = ({ info }) => {
           {topLevelComment?.snippet?.authorDisplayName}
         </div>
 
-        <div className="w-11/12 flex flex-wrap">{topLevelComment?.snippet?.textDisplay}</div>
+        <div className="w-11/12 flex flex-wrap">
+          {topLevelComment?.snippet?.textDisplay}
+        </div>
       </div>
     </div>
   );

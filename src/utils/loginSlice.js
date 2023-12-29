@@ -7,14 +7,14 @@ const loginSlice = createSlice({
     url: "",
   },
   reducers: {
-    signin: (state, action)=>{
-        state.name = action.payload.name
-        state.url = action.payload.url
-      },
-    signout: (state)=>{
-        state.name = ""
-        state.url = ""
-      },
+    signin: (state, action) => {
+      state.name = action.payload.name;
+      state.url = action.payload.url;
+    },
+    signout: (state) => {
+      state.name = "";
+      state.url = "";
+    },
   },
 });
 

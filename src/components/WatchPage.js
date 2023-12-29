@@ -18,6 +18,7 @@ const WatchPage = () => {
   const [video, setVideo] = useState();
 
   useEffect(() => {
+    // Close sidebar
     dispatch(closeMenu());
     getCommentsData();
 
@@ -36,10 +37,10 @@ const WatchPage = () => {
       }
     })();
 
-    return ()=>{
-      setVideo()
-      setComments()
-    }
+    return () => {
+      setVideo();
+      setComments();
+    };
     // eslint-disable-next-line
   }, [searchParams.get("v")]);
 
@@ -53,6 +54,7 @@ const WatchPage = () => {
       );
       const json = await data.json();
 
+      // if error comes in json then don't do setComments
       if (json.error) {
         setComments(json);
         return;
@@ -65,12 +67,10 @@ const WatchPage = () => {
   };
 
   return (
-    <div className="flex flex-row w-[94vw] absolute top-16 right-0 justify-between">
-      <div className="flex flex-col w-[61%] ml-3 mr-4">
+    <div className="flex flex-col lg:flex-row w-full md:w-[90vw] lg:w-[92vw] xl:w-[93vw] absolute top-24 md:top-16 right-0 justify-between">
+      <div className="flex flex-col w-11/12 lg:w-[55%] ml-3 mr-4">
         <iframe
-          className="rounded-2xl"
-          width="800"
-          height="400"
+          className="rounded-2xl w-full h-[40vh] sm:h-[50vh] lg:h-[45vh] xl:h-[55vh] 2xl:h-[65vh]"
           src={
             "https://www.youtube.com/embed/" + searchParams.get("v") + "?rel=0"
           }
@@ -94,7 +94,7 @@ const WatchPage = () => {
         </div>
       </div>
 
-      <div className="w-2/5">
+      <div className="w-11/12 lg:w-[45%]">
         <LiveChat />
         {video?.snippet?.title && (
           <RelatedVideos query={video?.snippet?.title} />

@@ -13,7 +13,7 @@ const VideoCard = ({ info }) => {
   };
 
   return (
-    <div className="flex flex-col items-center shadow border rounded-lg m-2 p-2 box-border">
+    <div className="w-full flex flex-col items-center shadow border rounded-lg p-2 box-border">
       <div className="relative w-fit mt-1">
         <LazyLoadImage
           src={thumbnails?.medium?.url}
@@ -25,7 +25,9 @@ const VideoCard = ({ info }) => {
         </span>
       </div>
       <ul className="ml-4 w-full">
-        <li className="font-bold text-xl my-1">{title.substring(0, 50)}</li>
+        <li className="font-bold text-lg sm:text-xl my-1">
+          {title.substring(0, 50)}
+        </li>
         <li className="text-lg flex items-center font-medium text-gray-800">
           <LazyLoadImage
             src={thumbnails?.medium?.url}
