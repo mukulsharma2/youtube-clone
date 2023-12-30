@@ -1,7 +1,8 @@
 # This is a Youtube clone made using ReactJs and Redux store
-<h2>Main features of this project</h2>
+<h2>Main features of this frontend project</h2>
 <ul>
   <li>This project uses Youtube Data API</li>
+  <li>This project uses tailwind css framework</li>
   <li>This project has data driven UI(user interface)</li>
   <li>This project uses redux store for state management</li>
   <li>This project has optimized searchbar with suggestions using debouncing</li>
