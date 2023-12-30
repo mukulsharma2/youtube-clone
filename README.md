@@ -15,6 +15,3 @@
   <li>This project has lazy loaded images on video container, search page, related videos</li>
   <li>This project is fully responsive</li>
 </ul>
-
-<br/>
-<br/>
